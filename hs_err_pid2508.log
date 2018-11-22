@@ -1,0 +1,80 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x19093580, pid=2508, tid=5176
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_51-b16) (build 1.8.0_51-b16)
+# Java VM: Java HotSpot(TM) Client VM (25.51-b03 mixed mode windows-x86 )
+# Problematic frame:
+# C  0x19093580
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x14c67400):  JavaThread "Finalizer" daemon [_thread_in_native, id=5176, stack(0x14ef0000,0x14f40000)]
+
+siginfo: ExceptionCode=0xc0000005, ExceptionInformation=0x00000008 0x19093580
+
+Registers:
+EAX=0x19093580, EBX=0x19507cd0, ECX=0x14c67540, EDX=0x19d18590
+ESP=0x14f3f09c, EBP=0x14f3f0d8, ESI=0x19507cd0, EDI=0x14c67400
+EIP=0x19093580, EFLAGS=0x00010283
+
+Top of Stack: (sp=0x14f3f09c)
+0x14f3f09c:   0264c0c3 14c67540 14f3f0e0 1b969c30
+0x14f3f0ac:   00000000 6a762534 14f3f2fc 14f3f0b8
+0x14f3f0bc:   00000000 14f3f0ec 19d18590 00000000
+0x14f3f0cc:   19507cd0 00000000 14f3f0e8 14f3f110
+0x14f3f0dc:   026443b4 0a89d280 02648a99 1b969c30
+0x14f3f0ec:   00000000 14f3f0f0 19d7f611 14f3f11c
+0x14f3f0fc:   19e8f958 00000000 19d7f630 14f3f0e8
+0x14f3f10c:   14f3f118 14f3f148 026443b4 1b969c30 
+
+Instructions: (pc=0x19093580)
+0x19093560:   
+[error occurred during error reporting (printing registers, top of stack, instructions near pc), id 0xc0000005]
+
+Register to memory mapping:
+
+EAX=0x19093580 is an unknown value
+EBX={method} {0x19507cd4} 'free' '(J)V' in 'com/sun/jna/Native'
+ECX=0x14c67540 is an unknown value
+EDX=0x19d18590 is pointing into metadata
+ESP=0x14f3f09c is pointing into the stack for thread: 0x14c67400
+EBP=0x14f3f0d8 is pointing into the stack for thread: 0x14c67400
+ESI={method} {0x19507cd4} 'free' '(J)V' in 'com/sun/jna/Native'
+EDI=0x14c67400 is a thread
+
+
+Stack: [0x14ef0000,0x14f40000],  sp=0x14f3f09c,  free space=316k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x19093580
+j  com.sun.jna.Memory.free(J)V+1
+j  com.sun.jna.Memory.dispose()V+4
+j  com.sun.jna.Memory.finalize()V+1
+J 709 C1 java.lang.ref.Finalizer.runFinalizer(Lsun/misc/JavaLangAccess;)V (62 bytes) @ 0x027fc32c [0x027fc1a0+0x18c]
+J 708 C1 java.lang.ref.Finalizer.access$100(Ljava/lang/ref/Finalizer;Lsun/misc/JavaLangAccess;)V (6 bytes) @ 0x027fbf94 [0x027fbf80+0x14]
+j  java.lang.ref.Finalizer$FinalizerThread.run()V+45
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x155dc5]
+V  [jvm.dll+0x21b31e]
+V  [jvm.dll+0x155e5e]
+V  [jvm.dll+0x155fe6]
+V  [jvm.dll+0x156057]
+V  [jvm.dll+0xfb1df]
+V  [jvm.dll+0x17924c]
+V  [jvm.dll+0x17933a]
+V  [jvm.dll+0x1bd7b6]
+C  [msvcr100.dll+0x5c556]
+C  [msvcr100.dll+0x5c600]
+C  [KERNEL32.DLL+0x1919f]
+C  [ntdll.dll+0x5b5af]
+C  [ntdll.dll+0x5b57a]
+C
